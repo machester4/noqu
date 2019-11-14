@@ -13,8 +13,6 @@ export default {
     // Agregar job RegistrationMail en la cola
     await Queue.add("RegistrationMail", { user });
 
-    await Queue.add("UserReport", { user });
-
     return res.json(user);
   }
 };
