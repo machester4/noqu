@@ -1,8 +1,8 @@
 const Mail = require("../lib/Mail");
 
 module.exports = async function(job, done) {
-  console.log(job.progress);
   const { data, progress } = job;
+  console.log("Running MailJob", data);
   await Mail.sendMail({
     from: "Noqu",
     to: `${data.name} <${data.email}>`,

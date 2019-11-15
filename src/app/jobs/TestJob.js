@@ -1,5 +1,3 @@
-import path from "path";
-
 export default {
   key: "TestJob",
   options: {
