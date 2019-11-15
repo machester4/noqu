@@ -1,7 +1,9 @@
 import Queue from "../lib/Queue";
 
-export default {
-  async store(req, res) {
+/**
+ * This example send mail to all user in req body
+ */
+export default (req, res) => {
     const { name, email, password } = req.body;
 
     const user = {
@@ -14,5 +16,4 @@ export default {
     await Queue.add("RegistrationMail", { user });
 
     return res.json(user);
-  }
 };

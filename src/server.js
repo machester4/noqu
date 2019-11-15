@@ -10,7 +10,7 @@ BullBoard.setQueues(Queue.queues.map(queue => queue.bull));
 
 app.use(express.json());
 app.use("/", BullBoard.UI);
-app.post("/test", TestController.main);
+app.post("/test", TestController);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
