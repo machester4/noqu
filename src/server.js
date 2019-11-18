@@ -7,10 +7,10 @@ import Queue from "./app/lib/Queue";
 
 const app = express();
 const port = process.env.port || 3333;
-BullBoard.setQueues(Queue.queues.map(queue => queue.bull));
+//BullBoard.setQueues(Queue.queues.map(queue => queue.bull));
 
 app.use(express.json());
-app.use("/", BullBoard.UI);
+// app.use("/", BullBoard.UI);
 app.post("/test", TestController);
 // This is only for example hook notification
 app.post("/notification", NotificationController);

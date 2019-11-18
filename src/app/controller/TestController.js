@@ -6,7 +6,9 @@ export default async (req, res) => {
   const allJobsKeys = Object.keys(jobs).filter(
     jobKey => jobKey !== "EventQueueJob"
   );
-  const promises = allJobsKeys.map(jobKey => Queue.add(jobKey, req.body));
+  const promises = allJobsKeys.map((jobKey, i) =>
+    Queue.add(jobKey, i, req.body)
+  );
   await Promise.all(promises);
 
   return res.json({ status: "OK" });

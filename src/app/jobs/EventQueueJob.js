@@ -3,5 +3,5 @@ export default {
   options: {
     delay: 5000
   },
-  processor: "EventQueueJobProcessor.js"
+  processor: "EventJobProcessor.js"
 };
