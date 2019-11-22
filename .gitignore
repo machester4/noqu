@@ -1,4 +1,5 @@
 node_modules
+draft
 yarn.lock
 .env
 .DS_Store
