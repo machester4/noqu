@@ -1,5 +1,6 @@
 node_modules
 draft
+dump.rdb
 yarn.lock
 .env
 .DS_Store
