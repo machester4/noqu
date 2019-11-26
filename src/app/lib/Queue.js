@@ -6,7 +6,10 @@ import * as jobs from "../jobs";
 
 // Create one queue for job type
 const queues = Object.values(jobs).map(job => ({
-  bull: new Queue(job.key, { connection: redisConfig }),
+  bull: new Queue(job.key, {
+    connection: redisConfig,
+    defaultJobOptions: job.options
+  }),
   worker: new Worker(
     job.key,
     path.resolve(__dirname, `../processors/${job.processor}`),
@@ -18,27 +21,9 @@ const queues = Object.values(jobs).map(job => ({
 
 export default {
   queues,
-  add(name, id, data) {
-    // Find respective job queue and add the new task
+  add(name, data) {
+    // Find respective Queue and add the new job
     const queue = this.queues.find(queue => queue.name == name);
-    return queue.bull.add(id, data, queue.options);
+    return queue.bull.add(queue.name, data);
   }
-  //
 };
-
-// const mailQueue = new Queue(RegistrationMail.key, redisConfig);
-
-// mailQueue.on("failed", job => {
-//   console.log("Job failed", job.name, job.data);
-// });
-
-/*  process() {
-    return this.queues.forEach(queue => {
-      queue.bull.process(
-        "__default__",
-        process.env.PROCESSES_PER_JOB,
-        queue.processor
-      );
-    });
-    // this.handleEventQueue();
-  } */

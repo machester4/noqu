@@ -1,7 +1,5 @@
 export default {
   key: "TestJob",
-  options: {
-    delay: 5000
-  },
+  options: {},
   processor: "TestJobProcessor.js"
 };

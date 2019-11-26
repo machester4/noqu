@@ -4,13 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "npm-run-all -p dev:*",
-    "dev:server": "nodemon src/server.js",
-    "dev:queue": "nodemon src/queue.js"
+    "start": "node src/server.js",
+    "start:dev": "nodemon src/server.js"
   },
   "dependencies": {
-    "bull-board": "^0.5.0",
-    "bullmq": "^1.4.1",
+    "bullmq": "^1.5.0",
     "chalk": "^3.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -19,7 +17,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.4",
-    "npm-run-all": "^4.1.5",
     "sucrase": "^3.10.1"
   }
 }

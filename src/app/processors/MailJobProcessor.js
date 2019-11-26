@@ -12,7 +12,7 @@ module.exports = async function(job, done) {
       html: `Hello, ${data.name}, Thank for use Noqu`
     });
     Log.success(`MailJob - ${job.id} Completed`);
-    done();
+    done(true);
   } catch (error) {
     console.log(job);
     Log.error(`MailJob - ${job.id} Failed`);
