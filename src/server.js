@@ -7,7 +7,7 @@ import Queue from "./app/lib/Queue";
 
 // Noqu-board-connector
 // draft folder is fake node_modules clone noqu-board-connector here
-// const connector = require("../draft");
+const connector = require("../draft");
 
 const app = express();
 const port = process.env.port || 3333;
@@ -20,7 +20,11 @@ app.post("/test", TestController);
 app.post("/notification", NotificationController);
 
 // Use Noqu-board-connector routes
-// connector(app, "/app", null);
+connector(
+  app,
+  "/app",
+  Queue.queues.map(queue => queue.bull)
+);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
