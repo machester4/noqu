@@ -16,7 +16,6 @@
     "tslib": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4",
-    "sucrase": "^3.10.1"
+    "nodemon": "^1.19.4"
   }
 }

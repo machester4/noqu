@@ -1,15 +1,15 @@
-const Log = require("../lib/Log");
+const log = require("../../lib/log");
 
 module.exports = async function(job, done) {
   try {
     console.log("Running TestJob");
     const { data, progress } = job;
     setTimeout(() => {
-      Log.success(`TestJob - ${job.id} Completed`);
+      log.success(`TestJob - ${job.id} Completed`);
       done();
     }, 1000 * 5);
   } catch (error) {
-    Log.error(`TestJob - ${job.id} Failed`);
+    log.error(`TestJob - ${job.id} Failed`);
     done(error);
   }
 };

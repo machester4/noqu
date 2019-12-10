@@ -1,5 +1,5 @@
-const Log = require("../lib/Log");
-const Mail = require("../lib/Mail");
+const log = require("../../lib/log");
+const Mail = require("../../lib/mail");
 
 module.exports = async function(job, done) {
   try {
@@ -11,11 +11,11 @@ module.exports = async function(job, done) {
       subject: "Hello from Noqu",
       html: `Hello, ${data.name}, Thank for use Noqu`
     });
-    Log.success(`MailJob - ${job.id} Completed`);
+    log.success(`MailJob - ${job.id} Completed`);
     done();
   } catch (error) {
     console.log(job);
-    Log.error(`MailJob - ${job.id} Failed`);
+    log.error(`MailJob - ${job.id} Failed`);
     done(error);
   }
 };

@@ -1,4 +1,8 @@
 // This folder contains all jobs
-export { default as MailJob } from "./MailJob";
-export { default as TestJob } from "./TestJob";
-export { default as EventQueueJob } from "./EventQueueJob";
+const demo = require("./demo");
+const mail = require("./mail");
+
+module.exports = {
+  demo,
+  mail
+};
