@@ -3,7 +3,6 @@ const path = require("path");
 const redisConfig = require("../../config/redis");
 const jobs = require("../jobs");
 
-console.log(path.resolve(__dirname, `../jobs/demo/processor.js`));
 // Create one queue for job type
 const queues = Object.values(jobs).map(job => ({
   bull: new Queue(job.key, {
@@ -12,7 +11,7 @@ const queues = Object.values(jobs).map(job => ({
   }),
   worker: new Worker(
     job.key,
-    path.resolve(__dirname, `../jobs/demo/processor.js`),
+    path.resolve(__dirname, `../jobs/${job.key}/processor.js`),
     {
       connection: redisConfig,
       concurrency: process.env.PROCESSES_PER_JOB
