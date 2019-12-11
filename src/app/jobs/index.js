@@ -1,2 +1,8 @@
-export { default as RegistrationMail } from "./RegistrationMail";
-export { default as UserReport } from "./UserReport";
+// This folder contains all jobs
+const demo = require("./demo");
+const mail = require("./mail");
+
+module.exports = {
+  demo,
+  mail
+};
