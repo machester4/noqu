@@ -1,7 +1,7 @@
 {
-  "name": "fine_tail",
+  "name": "noqu",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "license": "MIT",
   "scripts": {
     "start": "node src/server.js",
@@ -16,6 +16,7 @@
     "tslib": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "noqu-scripts": "https://github.com/machester4/noqu-scripts.git"
   }
 }
